@@ -68,7 +68,7 @@ target/
 
 # IPython Notebook
 .ipynb_checkpoints
-.pyt
+*.pyt
 
 # pyenv
 .python-version
