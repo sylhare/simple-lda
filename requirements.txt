@@ -1,4 +1,4 @@
-nltk.tokenize
-nltk.stem.porter
+numpy
+nltk
 gensim
 stop_words
