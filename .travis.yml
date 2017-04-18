@@ -1,0 +1,28 @@
+language: python
+
+sudo: false
+
+notifications:
+    email: false
+    
+python:
+  - "3.5"
+  
+before_install:
+#Upgrade pip before install
+- "pip install -U pip"
+
+# command to install dependencies
+install: "pip install -r requirements.txt"
+
+# command to run tests
+script: 
+  - "python src/lda training.py"
+  - "python src/my_lda_training.py"
+  
+branches:
+  only:
+    - master
+    
+after_success:
+  - echo "Success!"

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 14 09:22:40 2016
+Created on Wed Sep 14 06:22:40 2016
 
 Based on the Porter Algorithm
 http://snowball.tartarus.org/algorithms/english/stemmer.html
@@ -8,7 +8,7 @@ http://tartarus.org/~martin/PorterStemmer/def.txt
 http://www.nltk.org/_modules/nltk/stem/snowball.html
 R1 and R2: http://snowball.tartarus.org/texts/r1r2.html
 
-@author: sylvain.hareng1
+@author: sylhare
 """
 
 #vowels = ['a','e','i','o','u','y']
@@ -17,8 +17,10 @@ doubles=("bb", "dd", "ff", "gg", "mm", "nn", "pp", "rr", "tt")
 li_ending = "cdeghkmnrt"
 
 """
-R1 is the region after the first non-vowel following a vowel, or is the null region at the end of the word if there is no such non-vowel.
-R2 is the region after the first non-vowel following a vowel in R1, or is the null region at the end of the word if there is no such non-vowel. 
+R1 is the region after the first non-vowel following a vowel, or is the null 
+region at the end of the word if there is no such non-vowel.
+R2 is the region after the first non-vowel following a vowel in R1, 
+or is the null region at the end of the word if there is no such non-vowel. 
 
 Below, R1 and R2 are shown for a number of English words,
 
@@ -27,34 +29,50 @@ Below, R1 and R2 are shown for a number of English words,
                               |<----->|    R2
 """
 word="Testerization"
-#Return the r1 of word, or the r2 of a r1
-#r1 = region(word) and r2 = region(word)
+
 def region(word):
+    """
+    Return the r1 of word, or the r2 of a r1
+    r1 = region(word) and r2 = region(word)
+    
+    """
     for c in range(1,len(word)):
         if word[c] not in vowels and word[c-1] in vowels:
             return word[c+1:]
     return ""
 
-#To djust the size of the root (r1 and r2) after removing a suffix
-#Not used because I've over simplified the code
+
 def adjust(r, suffix):
+    """
+    To djust the size of the root (r1 and r2) after removing a suffix
+    Not used because I've over simplified the code
+    
+    """
     if len(r) >= len(suffix):
         r = r[:-len(suffix)]
     else:
         r = ""
     return r
 
-#For some step, replace suffix that are in r1 by there counterpart
-#suffix is a list of tuples, suffix=[(suffix to replace, counterpart)]
-def replaceSuffix(word,suffix):      
+
+def replaceSuffix(word,suffix): 
+    """
+    For some step, replace suffix that are in r1 by there counterpart
+    suffix is a list of tuples, suffix=[(suffix to replace, counterpart)]
+
+    """     
     for s in suffix: 
         if word.endswith(s[0]) and region(word).endswith(s[0]):  
             return word[:-len(s[0])]+s[1] 
     return word   
 
-#Define if the last syllable is a short syllable or not
-#A short word is a word that ends with a short syllable
+
 def isLastShort(word):
+    """
+    Define if the last syllable is a short syllable or not
+    A short word is a word that ends with a short syllable
+    
+    """
     if len(word) >= 3 and (word[-1] not in vowels and 
                            word[-1] not in 'wx'and
                            word[-2] in vowels and
@@ -63,13 +81,15 @@ def isLastShort(word):
     return False
 
 """STEP 0 """
-#The ' and 's and 's' are either removed by the tokenization or because it's a stop word
+#The ' and 's and 's' are either removed by the tokenization 
+# or because it's a stop word
 
 """STEP 1A"""
 #Replace 'sses'
 if word.endswith('sses'): word=word[:-2]
 
-#Replace 'ied' and 'ies' by 'i' if preceded by more than one letter otherwise by 'ie'
+#Replace 'ied' and 'ies' by 'i' if preceded by
+# more than one letter otherwise by 'ie'
 if word.endswith('ied') or word.endswith('ies'):    
     if len(word)>=4:
         word=word[:-1]
@@ -111,14 +131,17 @@ print (word)
 #Not necessary, mostly replacing "y" by "i"
  
 """STEP 2 """
-#Not so sure with ('ivity','ive') - Active and Activity, ('ogy','og') - biology and biolog
+#Not so sure that step 1 is optionnal with 
+# ('ivity','ive') - Active and Activity, ('ogy','og') - biology and biolog
+
 word="affirmation"
 #word = "inaction"
 suffix2=[('tional','tion'), ('ency','ence'), ('ancy','ance'), ('ably','able'),
         ('ently','ent'), ('izer','ize'), ('ization','ize'), ('ational','ate'),
-        ('ation','ate'), ('ator','ate'), ('alism','al'), ('ality','al'), ('ally','al'),
-        ('fulness','ful'), ('ousli','ous'), ('ousness','ous'), ('iveness','ive'),
-        ('bility','ble'), ('bly','ble'), ('fully','ful'), ('lessly','less')]
+        ('ation','ate'), ('ator','ate'), ('alism','al'), ('ality','al'), 
+        ('ally','al'),('fulness','ful'), ('ousli','ous'), ('ousness','ous'), 
+        ('iveness','ive'), ('bility','ble'), ('bly','ble'), ('fully','ful'), 
+        ('lessly','less')]
 
 word = replaceSuffix(word,suffix2)
 print (word)
