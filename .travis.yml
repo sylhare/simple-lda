@@ -17,7 +17,7 @@ install: "pip install -r requirements.txt"
 
 # command to run tests
 script: 
-  - "python src/lda training.py"
+  - "python src/lda_training.py"
   - "python src/my_lda_training.py"
   
 branches:
