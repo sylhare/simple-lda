@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 LDA training
 Latent Dirichlet Allocation with Python
@@ -7,10 +7,7 @@ Latent Dirichlet Allocation with Python
 
 #Source
 """
-http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/
-https://rstudio-pubs-static.s3.amazonaws.com/79360_850b2a69980c4488b1db95987a24867a.html
-https://radimrehurek.com/gensim/models/ldamodel.html
-http://snowball.tartarus.org/algorithms/english/stemmer.html
+In the readme file
 
 """
 
@@ -21,7 +18,7 @@ from stop_words import get_stop_words
 from gensim import corpora, models
 
 
-"""Sample Document"""
+  ###  Sample Document  ###
 
 #Text
 doc_a = """Brocolli is good to eat. My brother likes to eat good brocolli,
@@ -40,7 +37,7 @@ doc_set = [doc_a, doc_b, doc_c, doc_d, doc_e]
 # list for tokenized documents in loop
 texts = []
 
-"""Tokenization"""
+  ###  Tokenization  ###  
 
 #Converting a document to its atomic elements.
 tokenizer = RegexpTokenizer(r'\w+')
@@ -67,7 +64,7 @@ print(tokens)
 #                   'my', 'mother']
 
 
-"""Stop Words"""
+  ###  Stop Words  ###  
 
 # create English stop words list
 en_stop = get_stop_words('en')
@@ -89,7 +86,7 @@ to fit your use case.
 
 stopped_tokens = [i for i in tokens if not i in en_stop]
 
-"""Stemming"""
+  ###  Stemming  ###  
 
 # import the Porter Stemmer module from NLTK
 #from nltk.stem.porter import PorterStemmer
@@ -142,8 +139,8 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 
 
 
-""" Generating the LDA model """
-# Source : Jordan Barber
+  ###  Generating the LDA model  ###  
+  # Source : Jordan Barber
 
 
 tokenizer = RegexpTokenizer(r'\w+')
