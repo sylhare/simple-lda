@@ -7,7 +7,7 @@ Created on Tue Sep 20 16:42:04 2016
 
   ###  STOP WORDS  ###
 
-##  english   ##  
+##  english   ##
 #Complete version
 CMP_EN = ['a', 'able', 'about', 'above', 'abst', 'accordance', 'according',
            'accordingly', 'across', 'act', 'actually', 'added', 'adj',
@@ -148,7 +148,7 @@ SHORTV_EN = ['a', 'about', 'above', 'after', 'again', 'against', 'all', 'am',
              'yours', 'yourself', 'yourselves']
 
 
-  ###  FUNCTIONS  ###    
+  ###  FUNCTIONS  ###
 
 def addStopWords(version, words):
     """
@@ -185,8 +185,8 @@ def mStopWords(words, version, *lang):
     """
     Return the list of words without the stopWords
     """
-    stopWords = getStopWord(version, *lang)
-    words = [word for word in words if word not in stopWords]
+    stop_words = getStopWord(version, *lang)
+    words = [word for word in words if word not in stop_words]
 
     return words
 

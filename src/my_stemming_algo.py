@@ -80,11 +80,11 @@ def isLastShort(word):
         return True
     return False
 
-  ###  STEP 0  ###  
+  ###  STEP 0  ###
 #The ' and 's and 's' are either removed by the tokenization
 # or because it's a stop word
 
-  ###  STEP 1A  ###  
+  ###  STEP 1A  ###
 #Replace 'sses'
 if word.endswith('sses'): word=word[:-2]
 
@@ -106,7 +106,7 @@ if word.endswith('s') and not (word.endswith('ss') or word.endswith('us')):
             break
 
 
-  ###  STEP 1B  ###  
+  ###  STEP 1B  ###
 #eed, eedly, ed, edly, ing, ingly
 suffix1=[('eed','ee'), ('eedly','ee')]
 word= replaceSuffix(word,suffix1)
@@ -130,12 +130,12 @@ if word.endswith(doubles):
 print (word)
 
 
-  ###  STEP 1C  ###  
+  ###  STEP 1C  ###
 
 #Not very necessary, mostly replacing "y" by "i"
 
 
-  ###  STEP 2  ###  
+  ###  STEP 2  ###
 
 #Not so sure that step 1 is optionnal with
 # ('ivity','ive') - Active and Activity, ('ogy','og') - biology and biolog
@@ -156,7 +156,7 @@ if word.endswith('ly') and word[-3] in li_ending:
     word = word [:-2]
 
 
-  ###  STEP 3  ###  
+  ###  STEP 3  ###
 
 #Mostly do same as step 2 but to remove last suffix (like in rationalization)
 suffix3=[('tional','tion'), ('ational','ate'), ('alize','al'), ('icate','ic'),
@@ -167,7 +167,7 @@ word = replaceSuffix(word,suffix3)
 #ative to delete in some time is optional
 
 
-  ###  STEP 4  ###  
+  ###  STEP 4  ###
 #Mettre à jour R1,R2 dans les autres étapes
 suffix4=['al', 'ance', 'ence', 'er', 'ic', 'able', 'ible', 'ant', 'ement',
          'ment', 'ent', 'ism', 'ate', 'iti', 'ous', 'ive', 'ize']
@@ -182,7 +182,7 @@ if r2.endswith('ion') and (word[:-3].endswith('s') or word[:-3].endswith('t')):
     word=word[:-3]
 
 
-  ###  STEP 5  ###  
+  ###  STEP 5  ###
 #A short syllable in a word is a vowel followed by a non-vowel other than w, x
 # "---oos" is not a short syllabe, "---os" is a short syllabe
 r1=region(word)
