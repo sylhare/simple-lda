@@ -6,19 +6,20 @@ notifications:
     email: false
     
 python:
-  - "3.5"
-  
+  - 3.5
+
+# Upgrade pip before install
 before_install:
-#Upgrade pip before install
-- "pip install -U pip"
+  - pip install -U pip
 
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install:
+  - pip install -r requirements.txt
 
 # command to run tests
 script: 
-  - "python src/lda_training.py"
-  - "python src/my_lda_training.py"
+  - python simple-lda/lda_training.py
+  - python simple-lda/my_lda_training.py
   
 branches:
   only:

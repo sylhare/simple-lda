@@ -1,4 +1,6 @@
-# LDA [![Build Status](https://travis-ci.org/Sylhare/lda.svg?branch=master)](https://travis-ci.org/Sylhare/lda) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78c4fa98c13b461a9efb74e66492ee5b)](https://www.codacy.com/app/Sylhare/lda?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sylhare/lda&amp;utm_campaign=Badge_Grade)
+# simple-lda
+
+[![Build Status](https://travis-ci.org/Sylhare/simple-lda.svg?branch=master)](https://travis-ci.org/Sylhare/simple-lda) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78c4fa98c13b461a9efb74e66492ee5b)](https://www.codacy.com/app/Sylhare/lda?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sylhare/lda&amp;utm_campaign=Badge_Grade)
 
 Latent Dirichlet allocation (LDA) is a topic model that generates topics based on word frequency from a set of documents. LDA is particularly useful for finding reasonably accurate mixtures of topics within a given document set.
 
