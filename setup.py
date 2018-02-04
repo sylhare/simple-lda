@@ -4,7 +4,7 @@ from pypandoc import convert
 LONG_DESCRIPTION = convert("README.md", 'rst')
 
 setup(name='simple-lda',
-      version='0.1.2',
+      version='0.1.3',
       description='Python library for Latent Dirichlet allocation (lda)',
       long_description=LONG_DESCRIPTION,
       author='sylhare',
@@ -12,11 +12,6 @@ setup(name='simple-lda',
       url='https://github.com/Sylhare/simple-lda',
       license='Apache License 2.0',
       tests_require=['pytest'],
-      install_requires=['matplotlib>=2.1'],
-      keywords=['prime',
-                'fermat',
-                'miller rabin',
-                'math'],
       packages=find_packages(),
       package_data={
           'Licence': ['LICENCE.txt'],
