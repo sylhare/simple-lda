@@ -26,4 +26,5 @@ branches:
     - master
     
 after_success:
+  - pip install simple-lda
   - echo "Success!"

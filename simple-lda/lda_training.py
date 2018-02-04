@@ -5,22 +5,21 @@ Latent Dirichlet Allocation with Python
 
 """
 
-#Source
+# Source
 """
 In the readme file
 
 """
 
-#Import
+# Import
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer
 from stop_words import get_stop_words
 from gensim import corpora, models
 
+# --  Sample Document  -- #
 
-  ###  Sample Document  ###
-
-#Text
+# Text
 doc_a = """Brocolli is good to eat. My brother likes to eat good brocolli,
         but not my mother."""
 doc_b = """My mother spends a lot of time driving my brother around
@@ -37,9 +36,9 @@ doc_set = [doc_a, doc_b, doc_c, doc_d, doc_e]
 # list for tokenized documents in loop
 texts = []
 
-  ###  Tokenization  ###
+###  Tokenization  ###
 
-#Converting a document to its atomic elements.
+# Converting a document to its atomic elements.
 tokenizer = RegexpTokenizer(r'\w+')
 
 """
@@ -54,7 +53,7 @@ tokenized.
 
 """
 
-#Example
+# Example
 raw = doc_a.lower()
 tokens = tokenizer.tokenize(raw)
 
@@ -64,7 +63,7 @@ print(tokens)
 #                   'my', 'mother']
 
 
-  ###  Stop Words  ###
+# --  Stop Words  -- #
 
 # create English stop words list
 en_stop = get_stop_words('en')
@@ -86,10 +85,10 @@ to fit your use case.
 
 stopped_tokens = [i for i in tokens if not i in en_stop]
 
-  ###  Stemming  ###
+# --  Stemming  -- #
 
 # import the Porter Stemmer module from NLTK
-#from nltk.stem.porter import PorterStemmer
+# from nltk.stem.porter import PorterStemmer
 
 # Create p_stemmer of class PorterStemmer
 p_stemmer = PorterStemmer()
@@ -105,7 +104,7 @@ Like stopping, stemming is flexible and some methods are more aggressive.
 The Porter stemming algorithm is the most widely used method
 """
 
-#Example, stem token
+# Example, stem token
 stemmed_tokens = [p_stemmer.stem(i) for i in stopped_tokens]
 
 print(stemmed_tokens)
@@ -122,8 +121,8 @@ is a list of lists, one list for each of our original documents.
 
 """
 
-#Construct a document-term matrix with a package called gensim
-#from gensim import corpora, models
+# Construct a document-term matrix with a package called gensim
+# from gensim import corpora, models
 texts.append(stemmed_tokens)
 dictionary = corpora.Dictionary(texts)
 
@@ -134,13 +133,11 @@ To see each token’s unique integer id, try print(dictionary.token2id)
 
 """
 
-#dictionary must be converted into a bag-of-words
+# dictionary must be converted into a bag-of-words
 corpus = [dictionary.doc2bow(text) for text in texts]
 
-
-
-  ###  Generating the LDA model  ###
-  # Source : Jordan Barber
+# --  Generating the LDA model -- #
+# Source : Jordan Barber
 
 
 tokenizer = RegexpTokenizer(r'\w+')
@@ -159,7 +156,6 @@ texts = []
 
 # loop through document list
 for i in doc_set:
-
     # clean and tokenize document string
     raw = i.lower()
     tokens = tokenizer.tokenize(raw)
@@ -181,7 +177,4 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 
 # generate LDA model
 ldamodel = models.ldamodel.LdaModel(corpus, num_topics=2,
-                                    id2word = dictionary, passes=20)
-
-
-
+                                    id2word=dictionary, passes=20)
