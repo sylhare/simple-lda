@@ -21,6 +21,7 @@ parts/
 sdist/
 var/
 *.egg-info/
+/simple_lda.egg-info/
 .installed.cfg
 *.egg
 
@@ -89,3 +90,4 @@ ENV/
 # Rope project settings
 .ropeproject
 .idea/
+

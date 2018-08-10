@@ -1,12 +1,24 @@
 from setuptools import setup, find_packages
-from pypandoc import convert
 
-LONG_DESCRIPTION = convert("README.md", 'rst')
+
+def get_long_description():
+    try:
+        import pypandoc
+
+        pypandoc.convert_file('README.md', 'rst', outputfile="readme.rst")
+        with open("readme.rst", 'r') as f:
+            readme = f.read()
+    except ImportError:
+        readme = 'Python library for Latent Dirichlet allocation (lda)'
+        print("Install pypandoc and pandoc to generate long description")
+
+    return readme
+
 
 setup(name='simple-lda',
-      version='0.1.3',
+      version='0.2.0',
       description='Python library for Latent Dirichlet allocation (lda)',
-      long_description=LONG_DESCRIPTION,
+      long_description=get_long_description(),
       author='sylhare',
       author_email='sylhare@outlook.com',
       url='https://github.com/Sylhare/simple-lda',
