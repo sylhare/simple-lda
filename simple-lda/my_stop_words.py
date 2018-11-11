@@ -150,7 +150,7 @@ SHORTV_EN = ['a', 'about', 'above', 'after', 'again', 'against', 'all', 'am',
 
 ###  FUNCTIONS  ###
 
-def addStopWords(version, words):
+def add_stop_words(version, words):
     """
     Add Stop Words, words must be string or list of strings.
     It won't be saved at the next launch of the application.
@@ -170,7 +170,7 @@ def addStopWords(version, words):
     return 0
 
 
-def getStopWord(version, *lang):
+def get_stop_words(version, *lang):
     """
     The language can be add up later, english as a default
 
@@ -181,11 +181,11 @@ def getStopWord(version, *lang):
         return SHORTV_EN
 
 
-def mStopWords(words, version, *lang):
+def my_stop_words(words, version, *lang):
     """
     Return the list of words without the stopWords
     """
-    stop_words = getStopWord(version, *lang)
+    stop_words = get_stop_words(version, *lang)
     words = [word for word in words if word not in stop_words]
 
     return words

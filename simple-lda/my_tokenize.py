@@ -8,7 +8,7 @@ Created on Tue Apr 17 19:18:53 2016
 
 ### FONCTION ###
 
-def mTokenize(text):
+def my_tokenize(text):
     """
     Returns a tokenize version of the input text
 

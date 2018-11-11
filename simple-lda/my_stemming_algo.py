@@ -56,7 +56,7 @@ def adjust(r, suffix):
     return r
 
 
-def replaceSuffix(word, suffix):
+def replace_suffix(word, suffix):
     """
     For some step, replace suffix that are in r1 by there counterpart
     suffix is a list of tuples, suffix=[(suffix to replace, counterpart)]
@@ -68,7 +68,7 @@ def replaceSuffix(word, suffix):
     return word
 
 
-def isLastShort(word):
+def is_last_short(word):
     """
     Define if the last syllable is a short syllable or not
     A short word is a word that ends with a short syllable
@@ -110,7 +110,7 @@ if word.endswith('s') and not (word.endswith('ss') or word.endswith('us')):
 ###  STEP 1B  ###
 # eed, eedly, ed, edly, ing, ingly
 suffix1 = [('eed', 'ee'), ('eedly', 'ee')]
-word = replaceSuffix(word, suffix1)
+word = replace_suffix(word, suffix1)
 
 for s in ('ed', 'edly', 'ing', 'ingly'):
     if word.endswith(s):
@@ -125,7 +125,7 @@ if word.endswith(('at', 'bl', 'iz')):
 
 if word.endswith(doubles):
     word = word[:-1]
-    if region(word) == "" and isLastShort(word):
+    if region(word) == "" and is_last_short(word):
         word = word + 'e'
 
 print(word)
@@ -149,7 +149,7 @@ suffix2 = [('tional', 'tion'), ('ency', 'ence'), ('ancy', 'ance'), ('ably', 'abl
            ('iveness', 'ive'), ('bility', 'ble'), ('bly', 'ble'), ('fully', 'ful'),
            ('lessly', 'less')]
 
-word = replaceSuffix(word, suffix2)
+word = replace_suffix(word, suffix2)
 print(word)
 
 if word.endswith('ly') and word[-3] in li_ending:
@@ -161,7 +161,7 @@ if word.endswith('ly') and word[-3] in li_ending:
 suffix3 = [('tional', 'tion'), ('ational', 'ate'), ('alize', 'al'), ('icate', 'ic'),
            ('icity', 'ic'), ('ical', 'ic'), ('ful', ''), ('ness', '')]
 
-word = replaceSuffix(word, suffix3)
+word = replace_suffix(word, suffix3)
 
 # ative to delete in some time is optional
 
@@ -188,7 +188,7 @@ r2 = region(r1)
 
 if r2.endswith('e'):
     word = word[:-1]
-elif r1.endswith('e') and not isLastShort(word[:-1]):
+elif r1.endswith('e') and not is_last_short(word[:-1]):
     word = word[:-1]
 
 print(word)

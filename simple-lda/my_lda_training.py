@@ -27,11 +27,11 @@ doc_e = """Health professionals say that brocolli is good for your health."""
 raw = doc_a.lower()
 
 ###  Tokenization  ###
-tokens = mt.mTokenize(raw)
+tokens = mt.my_tokenize(raw)
 
 ###  Stop Words  ###
 # remove stop words from tokens
-stopped_tokens = msw.mStopWords(tokens, 'long')
+stopped_tokens = msw.my_stop_words(tokens, 'long')
 
 print(stopped_tokens)
 # >> ['brocolli', 'good', 'eat', 'brother', 'likes', 'eat', 'good',

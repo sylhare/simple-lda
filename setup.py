@@ -16,7 +16,7 @@ def get_long_description():
 
 
 setup(name='simple-lda',
-      version='0.2.0',
+      version='0.3.0',
       description='Python library for Latent Dirichlet allocation (lda)',
       long_description=get_long_description(),
       author='sylhare',
