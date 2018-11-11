@@ -18,7 +18,7 @@ install:
 
 # command to run tests
 script: 
-  - python examples/lda_training.py
+  - python examples/gensim/lda_training.py
   - python simple-lda/my_lda_training.py
   
 branches:
