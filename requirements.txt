@@ -1,6 +1,6 @@
 numpy
 nltk
 gensim
-stop_words
+stop-words
 setuptools
 pypandoc

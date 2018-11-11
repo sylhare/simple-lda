@@ -18,7 +18,7 @@ install:
 
 # command to run tests
 script: 
-  - python simple-lda/lda_training.py
+  - python examples/lda_training.py
   - python simple-lda/my_lda_training.py
   
 branches:
