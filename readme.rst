@@ -33,10 +33,10 @@ Sources
    Inc <http://www.nltk.org/index.html>`__
 
 .. |Generic badge| image:: https://img.shields.io/badge/github-simple%20lda-blue.svg
-   :target: https://github.com/Sylhare/simple-lda
+   :target: https://github.com/sylhare/simple-lda
 .. |PyPI version| image:: https://badge.fury.io/py/simple-lda.svg
    :target: https://badge.fury.io/py/simple-lda
-.. |Build Status| image:: https://travis-ci.org/Sylhare/simple-lda.svg?branch=master
-   :target: https://travis-ci.org/Sylhare/simple-lda
+.. |Build Status| image:: https://travis-ci.org/sylhare/simple-lda.svg?branch=master
+   :target: https://travis-ci.org/sylhare/simple-lda
 .. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/78c4fa98c13b461a9efb74e66492ee5b
-   :target: https://www.codacy.com/app/Sylhare/lda?utm_source=github.com&utm_medium=referral&utm_content=Sylhare/lda&utm_campaign=Badge_Grade
+   :target: https://www.codacy.com/app/sylhare/lda?utm_source=github.com&utm_medium=referral&utm_content=sylhare/lda&utm_campaign=Badge_Grade
