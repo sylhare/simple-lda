@@ -24,7 +24,7 @@ setup(name='simple-lda',
       url='https://github.com/Sylhare/simple-lda',
       license='Apache License 2.0',
       tests_require=['pytest'],
-      packages=find_packages(),
+      packages=find_packages(exclude=['examples']),
       package_data={
           'Licence': ['LICENCE.txt'],
           'Readme': ['README.md'],

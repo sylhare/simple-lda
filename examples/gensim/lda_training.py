@@ -178,3 +178,6 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 # generate LDA model
 ldamodel = models.ldamodel.LdaModel(corpus, num_topics=2,
                                     id2word=dictionary, passes=20)
+
+if __name__ == "__main__":
+    pass
